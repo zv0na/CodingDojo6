@@ -5,8 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CodingDojo6"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
+        Title="MainWindow" Height="700" Width="1000">
+    <Grid Background="LightGray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
         
+        <StackPanel Grid.Row="1" Orientation="Vertical">
+            <Button FontSize="15" Height="30" Content="Overview" Margin="5"></Button>
+            <Button FontSize="15" Height="30" Content="My Toys" Margin="5"></Button>
+        </StackPanel>
+
+        <Border Grid.Column="1" Grid.Row="1" CornerRadius="50,0,0,0" BorderThickness="2" BorderBrush="Black" Margin="5,5,0,5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <ListBox Grid.Column="0" Margin="5" Background="LightGray">
+                    <ListBoxItem BorderThickness="2" BorderBrush="Black" Margin="5,50,5,5">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Image Height="50" Width="50" Margin="0,0,5,0" Source="Images/lego1.jpg"></Image>
+                            <Label Content="MY Lego" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem BorderThickness="2" BorderBrush="Black" Margin="5">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Image Height="50" Width="50" Margin="0,0,5,0" Source="Images/playmobil1.jpg"></Image>
+                            <Label Content="MY Playmobil" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+                <ListBox Grid.Column="1" Margin="5" Background="LightGray">
+                    <ListBoxItem BorderThickness="2" BorderBrush="Black" Margin="5" VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Height="40" Width="40" Source="Images/playmobil2.jpg" VerticalAlignment="Center"></Image>
+                                <Label Content="Playmobil 2" VerticalAlignment="Center"></Label>
+                                <Label Content="5+" VerticalAlignment="Center" HorizontalAlignment="Left"></Label>
+                            </StackPanel>
+                            <Button Margin="5" Content="Buy"></Button>
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+            </Grid>
+        </Border>
     </Grid>
 </Window>
