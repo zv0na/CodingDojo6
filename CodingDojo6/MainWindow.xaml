@@ -56,5 +56,11 @@
                 </ListBox>
             </Grid>
         </Border>
+        <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Margin="10" Height="70" Orientation="Horizontal">
+            <Image Source="Images/lego2.jpg" Height="60" Width="60" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5"></Image>
+            <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Height="60" Margin="5">
+                <Label Content="New Entry Added" VerticalAlignment="Center" HorizontalAlignment="Left"></Label>
+            </Border>
+        </StackPanel>
     </Grid>
 </Window>
