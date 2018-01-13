@@ -16,19 +16,18 @@ namespace CodingDojo6.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
-        /// <summary>
-        /// Initializes a new instance of the MainViewModel class.
-        /// </summary>
+        private ViewModelBase currentVm;
+
+        public ViewModelBase CurrentVm
+        {
+            get { return currentVm; }
+            set { currentVm = value; RaisePropertyChanged(); }
+        }
+
+
         public MainViewModel()
         {
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
+            
         }
     }
 }
