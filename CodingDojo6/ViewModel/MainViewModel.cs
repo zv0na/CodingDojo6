@@ -1,21 +1,22 @@
+using System;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.CommandWpf;
+using GalaSoft.MvvmLight.Ioc;
+using System.Collections.ObjectModel;
+using System.Windows.Media.Imaging;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace CodingDojo6.ViewModel
 {
-    /// <summary>
-    /// This class contains properties that the main View can data bind to.
-    /// <para>
-    /// Use the <strong>mvvminpc</strong> snippet to add bindable properties to this ViewModel.
-    /// </para>
-    /// <para>
-    /// You can also use Blend to data bind with the tool's support.
-    /// </para>
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
-    /// </summary>
+    
     public class MainViewModel : ViewModelBase
     {
+        //public ObservableCollection<ItemVm> Items { get; set; }
+
+        public RelayCommand OverviewBtn { get; set; }
+        public RelayCommand MyToysBtn { get; set; }
+
+
         private ViewModelBase currentVm;
 
         public ViewModelBase CurrentVm
@@ -27,7 +28,26 @@ namespace CodingDojo6.ViewModel
 
         public MainViewModel()
         {
-            
+            //Items = new ObservableCollection<ItemVm>();
+
+            CurrentVm = SimpleIoc.Default.GetInstance<OverviewVm>();
+
+            OverviewBtn = new RelayCommand(GehZuOverview);
+            MyToysBtn = new RelayCommand(GehZuToys);
+
+            (App.Current.Resources["Locator"] as ViewModelLocator).MessageBar.RegisterOnMessenger(SimpleIoc.Default.GetInstance<Messenger>(), "@Message");
+
+
+        }
+                
+        private void GehZuToys()
+        {
+            CurrentVm = SimpleIoc.Default.GetInstance<MyToysVm>();
+        }
+
+        private void GehZuOverview()
+        {
+            CurrentVm = SimpleIoc.Default.GetInstance<OverviewVm>();
         }
     }
 }

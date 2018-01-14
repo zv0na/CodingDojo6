@@ -14,6 +14,7 @@
 
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Practices.ServiceLocation;
 
 namespace CodingDojo6.ViewModel
@@ -31,10 +32,11 @@ namespace CodingDojo6.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
-           
+            SimpleIoc.Default.Register<Messenger>();
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<OverviewVm>();
             SimpleIoc.Default.Register<MyToysVm>();
+            SimpleIoc.Default.Register<MessageBarVm>();
         }
 
         public MainViewModel Main
@@ -58,6 +60,14 @@ namespace CodingDojo6.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<MyToysVm>();
+            }
+        }
+
+        public MessageBarVm MessageBar
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<MessageBarVm>();
             }
         }
 

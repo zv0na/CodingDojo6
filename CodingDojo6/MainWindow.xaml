@@ -8,7 +8,7 @@
         xmlns:views="clr-namespace:CodingDojo6.Views"
         mc:Ignorable="d"
         DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
-        Title="MainWindow" Height="700" Width="1000">
+        Title="MainWindow" Height="600" Width="1000">
     <Grid Background="LightGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -20,13 +20,21 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Orientation="Vertical">
-            <Button FontSize="15" Height="30" Content="Overview" Margin="5"></Button>
-            <Button FontSize="15" Height="30" Content="My Toys" Margin="5"></Button>
+            <Button FontSize="15" Height="30" Content="Overview" Margin="5" Command="{Binding OverviewBtn}" ></Button>
+            <Button FontSize="15" Height="30" Content="My Toys" Margin="5" Command="{Binding MyToysBtn}" ></Button>
         </StackPanel>
         <Border Grid.Column="1" Grid.Row="1" CornerRadius="50,0,0,0" BorderThickness="2" BorderBrush="Black" Margin="5,5,0,5">
             <ContentControl Content="{Binding CurrentVm}" >
-                
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type vm:OverviewVm}">
+                        <views:OverviewView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type vm:MyToysVm}">
+                        <views:MyToysView/>
+                    </DataTemplate>
+                </ContentControl.Resources>
             </ContentControl>
         </Border>
+        <views:MessageBarView Grid.Row="2" Grid.Column="1" DataContext="{Binding Source={StaticResource Locator}, Path=MessageBar}"/>
     </Grid>
 </Window>

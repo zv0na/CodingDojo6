@@ -8,10 +8,11 @@
              DataContext="{Binding Source={StaticResource Locator}, Path=MyToys}"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <ListBox Margin="5" Background="Transparent">
+        <ListBox Margin="5" Background="Transparent" ItemsSource="{Binding Einkaufswagen}" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Image VerticalAlignment="Center"></Image>
+                    <!--wir nicht angezeigt... kA warum :(-->
+                    <Image VerticalAlignment="Center" Source="{Binding Bild}" Height="80" Width="80"></Image>
                 </DataTemplate>
             </ListBox.ItemTemplate>
             <ListBox.ItemsPanel>
